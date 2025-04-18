@@ -143,10 +143,11 @@ void Render() {
         : Math::Max(0, raceData.LocalPlayer.TheoreticalRaceTime)
     ;
 
-    bestCopiumTime == 0
-        ? bestCopiumTime = theoreticalTime
-        : bestCopiumTime = Math::Min(bestCopiumTime, theoreticalTime)
-    ;
+    if (finished)
+        bestCopiumTime == 0
+            ? bestCopiumTime = theoreticalTime
+            : bestCopiumTime = Math::Min(bestCopiumTime, theoreticalTime)
+        ;
 
     if (int(theoreticalTime) <= 0)
         return;
