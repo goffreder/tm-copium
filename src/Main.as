@@ -98,8 +98,8 @@ void Main() {
 void Render() {
     RenderDebug();
 
-    if (app.RootMap.MapInfo.MapUid != lastMapUID) {
-        lastMapUID = app.RootMap.MapInfo.MapUid;
+    if (App.RootMap.MapInfo.MapUid != lastMapUID) {
+        lastMapUID = App.RootMap.MapInfo.MapUid;
         bestCopiumTime = 0;
     }
 
