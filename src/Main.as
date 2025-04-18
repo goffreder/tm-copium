@@ -17,6 +17,7 @@ void Main() {
     const MLFeed::HookRaceStatsEventsBase_V4@ raceData;
     const MLFeed::SharedGhostDataHook_V2@ ghostData;
     uint[] _bestTimes;
+    uint bestCopiumTime = 0;
 
     while (true) {
         yield();
@@ -141,6 +142,12 @@ void Render() {
         ? raceData.LocalPlayer.LastTheoreticalCpTime
         : Math::Max(0, raceData.LocalPlayer.TheoreticalRaceTime)
     ;
+
+    bestCopiumTime == 0
+        ? bestCopiumTime = theoreticalTime
+        : bestCopiumTime = Math::Min(bestCopiumTime, theoreticalTime)
+    ;
+
     if (int(theoreticalTime) <= 0)
         return;
 
@@ -173,7 +180,7 @@ void Render() {
         text += (S_Font == Font::DroidSans_Mono ? " " : "  ") + diffText;
     }
 
-    text += " test";
+    text += " - " + Time::Format(bestCopiumTime);
 
     nvg::FontSize(S_FontSize);
     nvg::FontFace(font);
