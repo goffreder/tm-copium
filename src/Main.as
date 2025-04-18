@@ -173,6 +173,8 @@ void Render() {
         text += (S_Font == Font::DroidSans_Mono ? " " : "  ") + diffText;
     }
 
+    text += " test";
+
     nvg::FontSize(S_FontSize);
     nvg::FontFace(font);
     nvg::TextAlign(nvg::Align::Center | nvg::Align::Middle);
