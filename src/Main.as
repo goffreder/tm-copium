@@ -10,6 +10,7 @@ uint          respawns    = 0;
 const float   scale       = UI::GetScale();
 TimesSource   source      = TimesSource::None;
 uint bestCopiumTime = 0;
+string lastMapUID = "";
 
 void Main() {
     ChangeFont();
@@ -96,6 +97,11 @@ void Main() {
 
 void Render() {
     RenderDebug();
+
+    if (app.RootMap.MapInfo.MapUid != lastMapUID) {
+        lastMapUID = app.RootMap.MapInfo.MapUid;
+        bestCopiumTime = 0;
+    }
 
     if (
         !S_Enabled
