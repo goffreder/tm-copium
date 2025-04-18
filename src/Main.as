@@ -98,11 +98,6 @@ void Main() {
 void Render() {
     RenderDebug();
 
-    if (App.RootMap.MapInfo.MapUid != lastMapUID) {
-        lastMapUID = App.RootMap.MapInfo.MapUid;
-        bestCopiumTime = 0;
-    }
-
     if (
         !S_Enabled
         or (S_HideWithGame and !UI::IsGameUIVisible())
@@ -126,6 +121,11 @@ void Render() {
     ) {
         // Reset();
         return;
+    }
+
+    if (App.RootMap.MapInfo.MapUid != lastMapUID) {
+        lastMapUID = App.RootMap.MapInfo.MapUid;
+        bestCopiumTime = 0;
     }
 
     const CGamePlaygroundUIConfig::EUISequence seq = Playground.UIConfigs[0].UISequence;
