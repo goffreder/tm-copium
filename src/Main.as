@@ -9,6 +9,7 @@ const string  pluginTitle = pluginColor + pluginIcon + "\\$G " + pluginMeta.Name
 uint          respawns    = 0;
 const float   scale       = UI::GetScale();
 TimesSource   source      = TimesSource::None;
+uint bestCopiumTime = 0;
 
 void Main() {
     ChangeFont();
@@ -17,7 +18,6 @@ void Main() {
     const MLFeed::HookRaceStatsEventsBase_V4@ raceData;
     const MLFeed::SharedGhostDataHook_V2@ ghostData;
     uint[] _bestTimes;
-    uint bestCopiumTime = 0;
 
     while (true) {
         yield();
