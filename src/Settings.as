@@ -10,6 +10,9 @@ bool S_HideWithGame = true;
 [Setting category="General" name="Show/hide with Openplanet UI"]
 bool S_HideWithOP = false;
 
+[Setting category="General" name="Show best no-respawn time (resets on map change)"]
+bool S_BestCopium = true;
+
 [Setting category="General" name="Show debug window"]
 bool S_Debug = false;
 

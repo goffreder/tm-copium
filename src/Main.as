@@ -187,7 +187,7 @@ void Render() {
         text += (S_Font == Font::DroidSans_Mono ? " " : "  ") + diffText;
     }
 
-    if (finished)
+    if (finished and S_BestCopium) {
         text += " - " + Time::Format(bestCopiumTime);
 
     nvg::FontSize(S_FontSize);
